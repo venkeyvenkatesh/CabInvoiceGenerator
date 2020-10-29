@@ -140,5 +140,20 @@ namespace NUnitTestProject1
 
         }
 
+        [Test]
+        //UC5
+        //Given mutiple premium rides return the Invoice Summary class object
+        public void GivenMultiplePremiumRides_GivesInvoiceSummaryObject()
+        {
+            Ride[] rides = { new Ride(2, 5), new Ride(2, 5) };
+            InvoiceGenerator invoiceGenerator = new InvoiceGenerator(RideType.PREMIUM);
+
+            InvoiceSummary actual = invoiceGenerator.calculateFare(rides);
+
+            InvoiceSummary expected = new InvoiceSummary(2, 80);
+            Assert.AreEqual(expected, actual);
+
+        }
+
     }
 }
